@@ -15,7 +15,7 @@ $(function() {
         top.frames[1].location.href = $("this").attr("href");
 
         // リンク先のフレームが表示されたら
-        $(top.frames[1]).ready(function() {
+        $(top).ready(function() {
             // ローディング要素を消す
             $("#loading").fadeOut();
         });
