@@ -8,16 +8,7 @@
             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDQz4Lkrcefbke0acn73S0CNq9hAvvYlgc&sensor=false">
     </script>
 
-    <script type="text/javascript">
-    function initialize() {
-      var latlng = new google.maps.LatLng(35.709984,139.810703);
-      var opts = {
-        zoom: 15,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
-    }
+    <script type="text/javascript" src="sample.js">
     </script>
 </head>
 <body onload="initialize()">
