@@ -1,19 +1,29 @@
+/* Google Maps APIサンプル */
+
+var map;
+
 function initialize() {
-  var latlng1 = new google.maps.LatLng(35.697456,139.702148);
-  var latlng2 = new google.maps.LatLng(34.694203,135.502625);
-
-  var opts1 = {
-    zoom: 13,
-    center: latlng1,
+  var latlng = new google.maps.LatLng(35.185384,136.89909);
+  var opts = {
+    zoom: 14,
+    center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+  map = new google.maps.Map(document.getElementById("map_canvas"), opts);
 
-  var opts2 = {
-    zoom: 13,
-    center: latlng2,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+  google.maps.event.addListener(map, 'drag', dispLatLng);
+}
 
-  var map1 = new google.maps.Map(document.getElementById("map_canvas1"), opts1);
-  var map2 = new google.maps.Map(document.getElementById("map_canvas2"), opts2);
+function dispLatLng(){
+  var latlng = map.getCenter();
+  var str = "[CENTER]=[" + latlng.lat() + "," + latlng.lng() + "]<br />";
+
+  var latlngBounds = map.getBounds();
+  var swLatlng = latlngBounds.getSouthWest();
+  str = str + "[SouthWest]=[" + swLatlng.lat() + "," + swLatlng.lng() + "]<br />";
+
+  var neLatlng = latlngBounds.getNorthEast();
+  str = str + "[NorthEast]=[" + neLatlng.lat() + "," + neLatlng.lng() + "]";
+
+  document.getElementById("latlng").innerHTML = str;
 }
