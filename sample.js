@@ -3,29 +3,23 @@
 var map;
 
 function initialize() {
-  var latlng = new google.maps.LatLng(35.185384,136.89909);
+  var latlng = new google.maps.LatLng(35.680865,139.767036);
   var opts = {
-    zoom: 14,
+    zoom: 13,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    mapTypeControl: false,
-    navigationControl: false
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map_canvas"), opts);
-
-  google.maps.event.addListener(map, 'drag', dispLatLng);
 }
 
-function dispLatLng(){
-  var latlng = map.getCenter();
-  var str = "[CENTER]=[" + latlng.lat() + "," + latlng.lng() + "]<br />";
+function toTokyo() {
+  map.panTo(new google.maps.LatLng(35.680865,139.767036));
+}
 
-  var latlngBounds = map.getBounds();
-  var swLatlng = latlngBounds.getSouthWest();
-  str = str + "[SouthWest]=[" + swLatlng.lat() + "," + swLatlng.lng() + "]<br />";
+function toShinbashi() {
+  map.panTo(new google.maps.LatLng(35.666397,139.758153));
+}
 
-  var neLatlng = latlngBounds.getNorthEast();
-  str = str + "[NorthEast]=[" + neLatlng.lat() + "," + neLatlng.lng() + "]";
-
-  document.getElementById("latlng").innerHTML = str;
+function toShinagawa() {
+  map.panTo(new google.maps.LatLng(35.629867,139.74015));
 }

@@ -12,11 +12,16 @@
     </script>
 </head>
 <body onload="initialize()">
-    <p>地図の中心及び左下/右上の座標を表示します。</p>
+<p>Google Maps APIを使ったサンプルです。</p>
 
-    <div id="map_canvas" style="width:500px; height:300px"></div>
+<div id="map_canvas" style="width:500px; height:300px"></div>
 
-    <p id="latlng" style="font-size:10px;"></p>
-
+<form>
+    <p>
+        <input type="button" id="tokyo" value="東京" onclick="toTokyo()" />
+        <input type="button" id="shinbashi" value="新橋" onclick="toShinbashi()" />
+        <input type="button" id="shinagawa" value="品川" onclick="toShinagawa()" />
+    </p>
+</form>
 </body>
 </html>
