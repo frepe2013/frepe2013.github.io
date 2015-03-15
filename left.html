@@ -7,16 +7,12 @@
     <script type="text/javascript">
 $(function() {
     // クリックしたら
-    $(".link").click(function(e) {
-        e.preventDefault();
-        
+    $(".link").click(function() {
         // ローディング要素を表示して
         $("#loading").show();
 
-        top.frames[1].location.href = $(this).attr("href");
-
-        // リンク先のフレームが表示されたら
-        $(top.frames[1].document).ready(function() {
+        // 先に非同期で画面を取得
+        $.get($(this).prop("href"), function() {
             // ローディング要素を消す
             $("#loading").fadeOut();
         });
@@ -43,7 +39,6 @@ $(function() {
 <ul>
     <li><a href="link1.html" target="contents" class="link">リンク1</a></li>
     <li><a href="link2.html" target="contents" class="link">リンク2</a></li>
-    <li><a href="link3.html" target="contents" class="link">リンク3</a></li>
 </ul>
 </body>
 </html>
